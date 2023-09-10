@@ -3,6 +3,11 @@
 
 #include <type.h>
 
+#define EXIT_FAILURE 1
+#define EXIT_SUCCESS 0
+
+#define offsetof(type, member) ((uint32_t) &((type *) 0)->member)
+
 #define get_func_addr ((int (*)(int, int)) *(int *) 0x1ffffb)
 
 #define calloc(nmemb, lsize) calloc_func(nmemb, lsize, 0)
