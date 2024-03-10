@@ -51,7 +51,8 @@ bool ar_extract(struct ar_info *ai)
     p = ((uint8_t *)ah) + sizeof(struct ar_hdr);
     ai->arlen -= sizeof(struct ar_hdr);
     ai->name[0] = 0;
-    sscanf(ah->ar_size,"%lu",&ai->size);  /* file size */
+    // sscanf(ah->ar_size,"%lu",&ai->size);  /* file size */ // use strtol instead
+    ai->size = strtol(ah->ar_size, NULL, 10);
 
     if (!strncmp(ah->ar_name,"/ ",2) ||             /* GNU symbol table */
         !strncmp(ah->ar_name,"__.SYMDEF ",10))      /* BSD symbol table */
@@ -69,7 +70,9 @@ bool ar_extract(struct ar_info *ai)
       int i,offset;
       char c,*s,*d=ai->name;
 
-      sscanf(&ah->ar_name[1],"%d",&offset);  /* name offset */
+      // sscanf(&ah->ar_name[1],"%d",&offset);  /* name offset */
+      offset = strtol(&ah->ar_name[1], NULL, 10);
+
       s = ai->long_names + offset;
       for (i=0; i<MAXARNAME; i++) {
         c = *s++;
@@ -82,7 +85,9 @@ bool ar_extract(struct ar_info *ai)
     else if (!strncmp(ah->ar_name,"#1/",3)) {  /* ext. name fmt. #1 (BSD) */
       int d,len;
 
-      sscanf(&ah->ar_name[3],"%d",&d);  /* ext.fmt. name length */
+      // sscanf(&ah->ar_name[3],"%d",&d);  /* ext.fmt. name length */
+      d = strtol(&ah->ar_name[3], NULL, 10);
+
       if (d > ai->arlen)
         error(37,ai->arname,ai->name);  /* Malformatted archive member */
       len = (d>MAXARNAME) ? MAXARNAME : d;
