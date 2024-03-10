@@ -52,16 +52,16 @@
 #define DEFTARGET "elf32i386"
 
 /* Targets to be included */
-#define ADOS                /* AmigaOS 68k hunk format */
-#define EHF                 /* WarpOS PPC extended hunk format */
-#define ATARI_TOS           /* Atari-ST TOS format */
+// #define ADOS                /* AmigaOS 68k hunk format */
+// #define EHF                 /* WarpOS PPC extended hunk format */
+// #define ATARI_TOS           /* Atari-ST TOS format */
 
 #define ELF32               /* general 32-bit ELF support */
 // #define ELF32_PPC_BE        /* ELF PowerPC 32-Bit Big Endian */
 // #define ELF32_AMIGA         /* ELF PPC relocatable for MorphOS/PowerUp */
 // #define ELF32_M68K          /* ELF M68k 32-Bit Big Endian */
 #define ELF32_386           /* ELF 386 32-Bit Little Endian */
-#define ELF32_AROS          /* ELF 386 relocatable for AROS */
+// #define ELF32_AROS          /* ELF 386 relocatable for AROS */
 // #define ELF32_ARM_LE        /* ELF ARM 32-Bit Little Endian */
 
 // #define ELF64               /* general 64-bit ELF support */
@@ -92,8 +92,8 @@
 #define VOBJ                /* vasm special object format */
 
 /* dependencies */
-#ifdef AOUT_MINT
-#define ATARI_TOS           /* a.out-MiNT format needs TOS */
-#endif
+// #ifdef AOUT_MINT
+// #define ATARI_TOS           /* a.out-MiNT format needs TOS */
+// #endif
 
 #endif /* CONFIG_H */
