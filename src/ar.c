@@ -25,7 +25,7 @@ bool ar_init(struct ar_info *ai,char *p,unsigned long plen,const char *name)
   if (plen<SARMAG || strncmp(p,ARMAG,SARMAG))
     return FALSE;
 
-  memset(ai,0,sizeof(struct ar_hdr));
+  memset(ai,0,sizeof(struct ar_info));
   ai->arname = (char *)name;
   ai->next = (struct ar_hdr *)(p+SARMAG);
   ai->arlen = plen - SARMAG;
