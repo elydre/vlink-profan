@@ -3,14 +3,6 @@
  * This file is part of vlink, a portable linker for multiple
  * object formats.
  * Copyright (c) 1997-2005  Frank Wille
- *
- * vlink is freeware and part of the portable and retargetable ANSI C
- * compiler vbcc, copyright (c) 1995-2005 by Volker Barthelmann.
- * vlink may be freely redistributed as long as no modifications are
- * made and nothing is charged for it. Non-commercial usage is allowed
- * without any restrictions.
- * EVERY PRODUCT OR PROGRAM DERIVED DIRECTLY FROM MY SOURCE MAY NOT BE
- * SOLD COMMERCIALLY WITHOUT PERMISSION FROM THE AUTHOR.
  */
 
 
@@ -39,6 +31,6 @@
 #define R_68K_COPY 19     /* Copy symbol at runtime */
 #define R_68K_GLOB_DAT 20 /* Create GOT entry */
 #define R_68K_JMP_SLOT 21 /* Create PLT entry */
-#define R_68K_RELATIVE 22 /* Adjust by program base */      
+#define R_68K_RELATIVE 22 /* Adjust by program base */
 
 #endif

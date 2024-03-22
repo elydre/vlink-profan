@@ -3,14 +3,6 @@
  * This file is part of vlink, a portable linker for multiple
  * object formats.
  * Copyright (c) 1997-2011  Frank Wille
- *
- * vlink is freeware and part of the portable and retargetable ANSI C
- * compiler vbcc, copyright (c) 1995-2011 by Volker Barthelmann.
- * vlink may be freely redistributed as long as no modifications are
- * made and nothing is charged for it. Non-commercial usage is allowed
- * without any restrictions.
- * EVERY PRODUCT OR PROGRAM DERIVED DIRECTLY FROM MY SOURCE MAY NOT BE
- * SOLD COMMERCIALLY WITHOUT PERMISSION FROM THE AUTHOR.
  */
 
 
@@ -285,7 +277,7 @@ void set_exec(const char *path)
 char *open_dir(const char *dirname)
 /* open a directory for examination */
 {
-  printf("open_dir(%s), not implemented\n", dirname);
+  printf("open_dir(%p), not implemented\n", dirname);
   return (char *) NULL;
 }
 
@@ -293,7 +285,7 @@ char *open_dir(const char *dirname)
 char *read_dir(char *d)
 /* get next file name from opened directory, NULL if no more entries */
 {
-  printf("read_dir(%x), not implemented\n", d);
+  printf("read_dir(%p), not implemented\n", d);
   return NULL;
 }
 
@@ -301,7 +293,7 @@ char *read_dir(char *d)
 void close_dir(char *d)
 /* finish directory access */
 {
-  printf("close_dir(%x), not implemented\n", d);
+  printf("close_dir(%p), not implemented\n", d);
 }
 
 
