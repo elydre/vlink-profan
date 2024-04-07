@@ -1,13 +1,31 @@
-#include <syscall.h>
+// standard entry point for ELF compiled files
 
-extern int main(int argc, char **argv);
+#include <setjmp.h>
+#include <profan.h>
 
-int entry(int argc, char **argv) {
-    // we need to call a other entry function
-    int exit_code = main(argc, argv);
+extern int main(int argc, char **argv, char **envp);
 
-    // free memory
-    c_mem_free_all(c_process_get_pid());
+extern void __init_libc(char **envp, void *exit_func);
+extern void __exit_libc();
 
-    return exit_code;
+void __entry_exit(int ret);
+
+jmp_buf env;
+
+int entry(int argc, char **argv, char **envp) {
+    __init_libc(envp, __entry_exit);
+
+    int val = setjmp(env);
+
+    if (val == 0) {
+        val = main(argc, argv, envp) + 1;
+        profan_cleanup();
+    }
+    __exit_libc();
+
+    return val - 1;
+}
+
+void __entry_exit(int ret) {
+    longjmp(env, ret + 1);
 }

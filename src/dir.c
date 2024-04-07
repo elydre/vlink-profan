@@ -46,7 +46,7 @@ struct Dir {
 
 #elif defined(profanOS)
 
-#include <syscall.h>
+#include <profan/syscall.h>
 
 #else  /* UNIX */
 #include <sys/types.h>

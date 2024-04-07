@@ -20,11 +20,7 @@
 
 #elif defined(_SGI_SOURCE)
 #include <libgen.h>
-
-#else /* UNIX */
-#include <fnmatch.h>
 #endif
-
 
 
 #ifdef AMIGAOS

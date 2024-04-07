@@ -12,7 +12,7 @@ LD      = "ld"
 
 OUTPUT  = "vlink"
 
-CFLAGS  = "-ffreestanding -fno-exceptions -m32 -I ./profan_zlib -Wno-overflow -O1"
+CFLAGS  = "-ffreestanding -fno-exceptions -m32 -I ./profan_zlib -Wno-overflow -O1 -nostdinc"
 LDFLAGS = f"-nostdlib -L {profan_path}/out/zlibs -T link.ld -z max-page-size=0x1000 -lc"
 
 OBJDIR  = "build"

@@ -1,12 +1,12 @@
 #ifndef STDLIB_ID
 #define STDLIB_ID 1007
 
-#include <type.h>
+#include <profan/type.h>
+#include <stddef.h>
 
 #define EXIT_SUCCESS 0
 #define EXIT_FAILURE 1
 
-#define offsetof(type, member) ((uint32_t) &((type *) 0)->member)
 #define RAND_MAX 0x7fffffff
 
 #define calloc(nmemb, lsize) calloc_func(nmemb, lsize, 0)
@@ -17,8 +17,7 @@
 #define malloc_ask(size) malloc_func(size, 1)
 #define realloc_ask(mem, new_size) realloc_func(mem, new_size, 1)
 
-void init_environ_ptr(char **env);
-char **get_environ_ptr(void);
+char **__get_environ_ptr(void);
 void *calloc_func(uint32_t nmemb, uint32_t lsize, int as_kernel);
 void free(void *mem);
 void *malloc_func(uint32_t size, int as_kernel);
