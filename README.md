@@ -1,4 +1,7 @@
 # vlink
+
+> link support in profanOS has been stopped since kernel 1.1.8b (May 2024), the use of tcc as a linker is strongly recommended
+
 A portable linker for multiple file formats.
 
 vlink is a portable linker, written in ANSI-C, that can read and write a wide range of object- and executable file formats. It can be used to link a specific target format from several different input file formats, or for converting, stripping and manipulating files.
